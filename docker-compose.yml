@@ -1,0 +1,22 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    environment:
+      DATABASE_URL: sqlite:///./vidyasetu.db
+      JWT_SECRET_KEY: change-this-development-secret
+      FRONTEND_URL: http://localhost:5173
+      AI_PROVIDER: mock
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./storage:/storage
+
+  frontend:
+    build:
+      context: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"

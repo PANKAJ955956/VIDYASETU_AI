@@ -1,0 +1,12 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+*.db
+*.sqlite3
+node_modules/
+dist/
+storage/uploads/*
+storage/vector_store/*
+.pytest_cache/
+.coverage
